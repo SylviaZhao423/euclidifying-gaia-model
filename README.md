@@ -70,6 +70,10 @@ python predict.py your_sources.csv --model q1_ero_mix_8.6      # highest precisi
 
 The CSV must contain columns matching the 14 feature names in `features.py`.
 
+## Bulk deployment on Gaia DR3
+
+`deploy_gaia.py` streams `gaia_dr3.gaia_source` in `random_index` batches, computes the three derived features inline in SQL, applies both the `q1_only` and `q1_ero_mix_8.6` ensembles, and writes per-source `P(gal)` predictions (mean and ensemble std) to a WSDB output table. Requires WSDB access.
+
 ## Recommended thresholds
 
 | Application | Threshold | Purity at 1% galaxy fraction |
